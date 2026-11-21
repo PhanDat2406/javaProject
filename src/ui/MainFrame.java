@@ -2,6 +2,7 @@ package ui;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
@@ -17,10 +18,12 @@ public class MainFrame extends JFrame {
         StudentPanel studentPanel = new StudentPanel();
         SubjectPanel subjectPanel = new SubjectPanel();
         GradePanel gradePanel = new GradePanel();
+        ReportPanel reportPanel = new ReportPanel();
 
         tabbedPane.addTab("Sinh viên", studentPanel);
         tabbedPane.addTab("Môn học", subjectPanel);
         tabbedPane.addTab("Điểm", gradePanel);
+        tabbedPane.addTab("Báo cáo & Thống kê", reportPanel);
 
         tabbedPane.addChangeListener(e -> {
             Component selected = tabbedPane.getSelectedComponent();
@@ -30,6 +33,8 @@ public class MainFrame extends JFrame {
                 subjectPanel.refreshData();
             } else if (selected == gradePanel) {
                 gradePanel.refreshData();
+            } else if (selected == reportPanel) {
+                reportPanel.refreshData();
             }
         });
 
