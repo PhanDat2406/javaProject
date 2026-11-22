@@ -15,13 +15,17 @@ public class MainFrame extends JFrame {
 
         JTabbedPane tabbedPane = new JTabbedPane();
         StudentPanel studentPanel = new StudentPanel();
+        SubjectPanel subjectPanel = new SubjectPanel();
 
         tabbedPane.addTab("Sinh viên", studentPanel);
+        tabbedPane.addTab("Môn học", subjectPanel);
 
         tabbedPane.addChangeListener(e -> {
             Component selected = tabbedPane.getSelectedComponent();
             if (selected == studentPanel) {
                 studentPanel.refreshData();
+            } else if (selected == subjectPanel) {
+                subjectPanel.refreshData();
             }
         });
 
