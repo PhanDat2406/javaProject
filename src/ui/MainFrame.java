@@ -16,9 +16,11 @@ public class MainFrame extends JFrame {
         JTabbedPane tabbedPane = new JTabbedPane();
         StudentPanel studentPanel = new StudentPanel();
         SubjectPanel subjectPanel = new SubjectPanel();
+        GradePanel gradePanel = new GradePanel();
 
         tabbedPane.addTab("Sinh viên", studentPanel);
         tabbedPane.addTab("Môn học", subjectPanel);
+        tabbedPane.addTab("Điểm", gradePanel);
 
         tabbedPane.addChangeListener(e -> {
             Component selected = tabbedPane.getSelectedComponent();
@@ -26,6 +28,8 @@ public class MainFrame extends JFrame {
                 studentPanel.refreshData();
             } else if (selected == subjectPanel) {
                 subjectPanel.refreshData();
+            } else if (selected == gradePanel) {
+                gradePanel.refreshData();
             }
         });
 
